@@ -1,0 +1,27 @@
+name: Test Nix Shell
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-nix-shell:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v27
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+
+      - name: Remove homeless-shelter directory
+        run: sudo rm -rf /homeless-shelter
+
+      - name: Build Nix shell
+        run: nix-shell --pure --run "echo OK"
