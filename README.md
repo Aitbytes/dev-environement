@@ -1,5 +1,7 @@
 # Development Environment
 
+[![Nix Test CI](https://github.com/Aitbytes/dev-environement/actions/workflows/nix-test.yml/badge.svg)](https://github.com/Aitbytes/dev-environement/actions/workflows/nix-test.yml)
+
 This repository contains a `shell.nix` file that defines a reproducible development environment using [Nix](https://nixos.org/).
 
 ## Prerequisites
